@@ -1,0 +1,11 @@
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-content {
+  padding-left: 63px;
+  padding-right: 63px;
+  max-width: 720px;
+}
