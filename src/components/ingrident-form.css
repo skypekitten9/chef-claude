@@ -1,0 +1,44 @@
+.ingridient-root {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.ingridient-input {
+  flex: 1;
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  stroke-width: 1px;
+  height: 38px;
+  outline: none;
+  padding-left: 13px;
+  padding-right: 13px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  font-size: small;
+  box-shadow: black;
+  min-width: 114px;
+}
+
+.add-ingridient-button {
+  background-color: #141413;
+  border: 0px;
+  border-radius: 6px;
+  height: 38px;
+  padding: 9px 17px 9px 17px;
+  font-size: small;
+  flex-basis: 0;
+  color: #fafaf8;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.add-ingridient-button:active {
+  background-color: #353533;
+}
+
+.add-ingridient-button::before {
+  content: "+";
+  padding-right: 5px;
+}
