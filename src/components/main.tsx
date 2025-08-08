@@ -10,7 +10,10 @@ export function Main() {
     const lowercase = ingredient.toLowerCase();
     const firstCapitalized =
       lowercase.charAt(0).toUpperCase() + lowercase.slice(1);
-    setIngredientList([...ingredientList, firstCapitalized]);
+    setIngredientList((oldIngredientList) => [
+      ...oldIngredientList,
+      firstCapitalized,
+    ]);
   };
 
   return (
