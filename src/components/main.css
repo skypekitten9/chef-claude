@@ -5,10 +5,14 @@ main {
 }
 
 .main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
   flex-grow: 1;
   padding-left: 63px;
   padding-right: 63px;
   padding-top: 67px;
   padding-bottom: 67px;
   max-width: 720px;
+  gap: 48px;
 }

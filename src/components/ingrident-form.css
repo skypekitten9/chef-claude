@@ -21,7 +21,7 @@
   min-width: 114px;
 }
 
-.add-ingridient-button {
+.submit-ingridient-button {
   background-color: #141413;
   border: 0px;
   border-radius: 6px;
@@ -34,11 +34,11 @@
   cursor: pointer;
 }
 
-.add-ingridient-button:active {
+.submit-ingridient-button:active {
   background-color: #353533;
 }
 
-.add-ingridient-button::before {
+.submit-ingridient-button::before {
   content: "+";
   padding-right: 5px;
 }
