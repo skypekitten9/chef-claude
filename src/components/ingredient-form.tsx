@@ -24,6 +24,7 @@ export function IngredientForm({ onIngredientSubmited }: TIngredientForm) {
         type="text"
         className="ingridient-input"
         placeholder="e.g. oregano"
+        name="ingridient"
         ref={inputRef}
       />
       <button className="submit-ingridient-button" type="submit">

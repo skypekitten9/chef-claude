@@ -1,17 +1,25 @@
+import { useState } from "react";
 import { IngredientForm } from "./ingredient-form";
 import { List } from "./list/list";
 import "./main.css";
 
 export function Main() {
+  const [ingredientList, setIngredientList] = useState<string[]>([]);
+  const shouldRenderIgredientList = ingredientList.length > 0;
+  const handleOnIngredientSubmited = (ingredient: string) => {
+    const lowercase = ingredient.toLowerCase();
+    const firstCapitalized =
+      lowercase.charAt(0).toUpperCase() + lowercase.slice(1);
+    setIngredientList([...ingredientList, firstCapitalized]);
+  };
+
   return (
     <main>
       <div className="main-content">
-        <IngredientForm
-          onIngredientSubmited={function (ingredient: string): void {
-            console.log("ingridient added:", ingredient);
-          }}
-        />
-        <List title="Ingridents on hand:" items={[]} />
+        <IngredientForm onIngredientSubmited={handleOnIngredientSubmited} />
+        {shouldRenderIgredientList && (
+          <List title="Ingridents on hand:" items={ingredientList} />
+        )}
       </div>
     </main>
   );
