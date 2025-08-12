@@ -1,4 +1,4 @@
-import { useRef, type FormEvent } from "react";
+import { type FormEvent } from "react";
 import "./ingrident-form.css";
 
 type TIngredientForm = {
@@ -6,16 +6,16 @@ type TIngredientForm = {
 };
 
 export function IngredientForm({ onIngredientSubmited }: TIngredientForm) {
-  const inputRef = useRef<HTMLInputElement>(null);
+  const INPUT_INGREDIENT_NAME = "ingridient";
   const handleOnSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (inputRef.current) {
-      const trimmedValue = inputRef.current.value.trim();
-      if (trimmedValue) {
-        onIngredientSubmited(inputRef.current.value);
-      }
-      inputRef.current.value = "";
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const ingredient = formData.get(INPUT_INGREDIENT_NAME);
+    if (ingredient) {
+      onIngredientSubmited(ingredient.toString());
     }
+    form.reset();
   };
 
   return (
@@ -24,12 +24,9 @@ export function IngredientForm({ onIngredientSubmited }: TIngredientForm) {
         type="text"
         className="ingridient-input"
         placeholder="e.g. oregano"
-        name="ingridient"
-        ref={inputRef}
+        name={INPUT_INGREDIENT_NAME}
       />
-      <button className="submit-ingridient-button" type="submit">
-        Add ingredient
-      </button>
+      <button className="submit-ingridient-button">Add ingredient</button>
     </form>
   );
 }
